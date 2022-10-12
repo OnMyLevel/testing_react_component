@@ -23,7 +23,8 @@ function renderLoginForm(props: Partial<Props> = {}) {
 }
 
 describe("<LoginForm />", () => {
-  test("should display a blank login form, with remember me checked by default", async () => {
+  
+  it("should display a blank login form, with remember me checked by default", async () => {
     const { findByTestId } = renderLoginForm();
 
     const loginForm = await findByTestId("login-form");
@@ -35,7 +36,7 @@ describe("<LoginForm />", () => {
     });
   });
 
-  test("should allow entering a username", async () => {
+  it("should allow entering a username", async () => {
     const onUsernameChange = jest.fn();
     const { findByTestId, debug } = renderLoginForm({ onUsernameChange });
     const username = await findByTestId("username");
@@ -55,7 +56,7 @@ describe("<LoginForm />", () => {
     expect(onPasswordChange).toHaveBeenCalledWith("password");
   });
 
-  test("should allow toggling remember me", async () => {
+  it("should allow toggling remember me", async () => {
     const onRememberChange = jest.fn();
     const { findByTestId } = renderLoginForm({
       onRememberChange,
@@ -72,7 +73,7 @@ describe("<LoginForm />", () => {
     expect(onRememberChange).toHaveBeenCalledWith(false);
   });
 
-  test("should submit the form with username, password, and remember", async () => {
+  it("should submit the form with username, password, and remember", async () => {
     const onSubmit = jest.fn();
     const { findByTestId } = renderLoginForm({
       onSubmit,
